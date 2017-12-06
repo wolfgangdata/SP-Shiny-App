@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "# SaniPath Cross Deployment Dashboard\n\n\nlibrary(shiny)\n# library(shinythemes)\n\n# Define UI for application that draws a histogram\nshinyUI(fluidPage(\n        titlePanel(\"SaniPath Deployment Dashboard\"),\n        \n        column(3, fluidRow(\n        )),\n        \n        \n        #Theme\n        # theme = shinytheme(\"spacelab\"),\n        # themeSelector(),\n  \n        column(1),\n        column(8,\n               tabsetPanel(type = \"tabs\",\n                    tabPanel(\"Overview\",\n                             textOutput(\"txtmain\"),\n                             tableOutput(\"overviewtbl\")),\n                    tabPanel(\"Sample\",\n                             plotOutput(\"distPlot\")),\n                    tabPanel(\"Lab\",\n                             plotOutput(\"distPlot\")),\n                    tabPanel(\"Household\",\n                             plotOutput(\"distPlot\")),\n                    tabPanel(\"Community\",\n                             plotOutput(\"distPlot\")),\n                    tabPanel(\"School\",\n                             plotOutput(\"distPlot\"))\n               )\n        )\n))\n                        ",
+    "created" : 1512565863960.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2975931549",
+    "id" : "302A9ADB",
+    "lastKnownWriteTime" : 1512566335,
+    "last_content_update" : 1512566335321,
+    "path" : "H:/GitHub/SP-Shiny-App/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

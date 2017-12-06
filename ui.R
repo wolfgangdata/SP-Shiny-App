@@ -16,20 +16,6 @@ shinyUI(fluidPage(
         # theme = shinytheme("spacelab"),
         # themeSelector(),
   
-  # # Application title
-  # 
-  # 
-  # # Sidebar with a slider input for number of bins 
-  # sidebarLayout(
-  #   sidebarPanel(
-  #      sliderInput("bins",
-  #                  "Number of bins:",
-  #                  min = 1,
-  #                  max = 50,
-  #                  value = 30)
-  #   ),
-    
-    # Show a plot of the generated distribution
         column(1),
         column(8,
                tabsetPanel(type = "tabs",
