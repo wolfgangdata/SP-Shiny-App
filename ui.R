@@ -4,7 +4,7 @@
 library(shiny)
 # library(shinythemes)
 
-# Define UI for application that draws a histogram
+
 shinyUI(fluidPage(
         titlePanel("SaniPath Deployment Dashboard"),
         
@@ -21,17 +21,11 @@ shinyUI(fluidPage(
                tabsetPanel(type = "tabs",
                     tabPanel("Overview",
                              textOutput("txtmain"),
-                             tableOutput("overviewtbl")),
+                             plotOutput("hist")),
                     tabPanel("Sample",
-                             plotOutput("distPlot")),
+                             textOutput("txtmain1")),
                     tabPanel("Lab",
-                             plotOutput("distPlot")),
-                    tabPanel("Household",
-                             plotOutput("distPlot")),
-                    tabPanel("Community",
-                             plotOutput("distPlot")),
-                    tabPanel("School",
-                             plotOutput("distPlot"))
+                             textOutput("txtmain2"))
                )
         )
 ))
