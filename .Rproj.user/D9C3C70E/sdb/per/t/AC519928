@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#\n# Server\n#\n\nlibrary(shiny)\nlibrary(ggplot2)\n\ndata_col <- read.csv(\"data/data_col.csv\", header=T, sep = \",\")\n\n\n# Define server logic required to draw a histogram\nshinyServer(function(input, output) {\n        \n        \n        output$hist <- renderPlot({\n                ggplot(data_col[data_col$deployment== input$deployments, ], aes(x=col_sample_type)) +\n                        geom_histogram()\n        })\n        \n        output$txtmain <- renderText({\n                paste(\"here is some text for the first tab\")\n        })\n        \n        output$txtsample <- renderText({\n                paste(\"here is some random text for the sample tab\")\n        })\n        \n        output$txtlab <- renderText({\n                paste(\"bla bla text for lab tab\")\n        })\n        \n\n})\n",
+    "created" : 1512565862597.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1347192518",
+    "id" : "AC519928",
+    "lastKnownWriteTime" : 1512593343,
+    "last_content_update" : 1512593343570,
+    "path" : "H:/GitHub/SP-Shiny-App/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

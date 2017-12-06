@@ -3,6 +3,7 @@
 #
 
 library(shiny)
+library(ggplot2)
 
 data_col <- read.csv("data/data_col.csv", header=T, sep = ",")
 
@@ -12,19 +13,20 @@ shinyServer(function(input, output) {
         
         
         output$hist <- renderPlot({
-                hist(data_col$deployment)
+                ggplot(data_col[data_col$deployment== input$deployments, ], aes(x=col_sample_type)) +
+                        geom_histogram()
         })
         
         output$txtmain <- renderText({
-                paste("here is some random text", "asdf")
+                paste("here is some text for the first tab")
         })
         
-        output$txtmain1 <- renderText({
-                paste("here is some random text", "asdf")
+        output$txtsample <- renderText({
+                paste("here is some random text for the sample tab")
         })
         
-        output$txtmain2 <- renderText({
-                paste("here is some random text", "asdf")
+        output$txtlab <- renderText({
+                paste("bla bla text for lab tab")
         })
         
 

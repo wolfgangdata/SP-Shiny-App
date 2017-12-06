@@ -2,18 +2,23 @@
 
 
 library(shiny)
-# library(shinythemes)
+library(shinythemes)
 
 
 shinyUI(fluidPage(
         titlePanel("SaniPath Deployment Dashboard"),
         
         column(3, fluidRow(
+                radioButtons("deployments", "Deployments",
+                             choices = c("Cambodia" = "1",
+                                         "Banglasdesh" = "2"),
+                             selected = "1"
+                )
         )),
         
         
-        #Theme
-        # theme = shinytheme("spacelab"),
+        # Theme
+        theme = shinytheme("spacelab"),
         # themeSelector(),
   
         column(1),
@@ -23,9 +28,9 @@ shinyUI(fluidPage(
                              textOutput("txtmain"),
                              plotOutput("hist")),
                     tabPanel("Sample",
-                             textOutput("txtmain1")),
+                             textOutput("txtsample")),
                     tabPanel("Lab",
-                             textOutput("txtmain2"))
+                             textOutput("txtlab"))
                )
         )
 ))
