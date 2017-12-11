@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#\n# Server\n#\n\nlibrary(shiny)\nlibrary(ggplot2)\n\ndata_col <- read.csv(\"data/data_col.csv\", header=T, sep = \",\")\n\n\n# Define server logic required to draw a histogram\nshinyServer(function(input, output, session) {\n        \n        \n        output$hist <- renderPlot({\n                ggplot(data_col[data_col$deployment== input$deployments, ], aes(x=col_sample_type)) +\n                        geom_histogram()\n        })\n        \n        output$txtmain <- renderText({\n                paste(\"here is some text for the first tab\")\n        })\n        \n        output$txtsample <- renderText({\n                paste(\"here is some random text for the sample tab\")\n        })\n        \n        output$txtlab <- renderText({\n                paste(\"bla bla text for lab tab\")\n        })\n        \n        points <- eventReactive(input$recalc, {\n                cbind(rnorm(40) * 2 + 13, rnorm(40) + 48)\n        }, ignoreNULL = FALSE)\n        \n        output$mymap <- renderLeaflet({\n                leaflet() %>%\n                        addProviderTiles(providers$Stamen.TonerLite,\n                                         options = providerTileOptions(noWrap = TRUE)\n                        ) %>%\n                        addMarkers(data = points())\n        })\n        \n\n})\n",
+    "created" : 1512565862597.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2488267022",
+    "id" : "AC519928",
+    "lastKnownWriteTime" : 1513023711,
+    "last_content_update" : 1513023711530,
+    "path" : "H:/GitHub/SP-Shiny-App/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

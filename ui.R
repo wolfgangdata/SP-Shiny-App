@@ -33,7 +33,9 @@ shinyUI(fluidPage(
                              textOutput("txtsample")
                              ),
                     tabPanel("Map",
-                             leafletOutput("map1")
+                             leafletOutput("mymap"),
+                             p(),
+                             actionButton("recalc", "New points")
                              ),
                     tabPanel("Lab",
                              textOutput("txtlab")

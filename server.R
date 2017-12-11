@@ -29,16 +29,16 @@ shinyServer(function(input, output, session) {
                 paste("bla bla text for lab tab")
         })
         
-        output$map1 <- renderLeaflet({
-                leaflet() %>% addTiles() %>% addCircleMarkers(
-                        lng = runif(10),
-                        lat = runif(10),
-                        layerId = paste0("marker", 1:10))
-        })
+        points <- eventReactive(input$recalc, {
+                cbind(rnorm(40) * 2 + 13, rnorm(40) + 48)
+        }, ignoreNULL = FALSE)
         
-        observeEvent(input$map1_marker_click, {
-                leafletProxy("map1", session) %>%
-                        removeMarker(input$map1_marker_click$id)
+        output$mymap <- renderLeaflet({
+                leaflet() %>%
+                        addProviderTiles(providers$Stamen.TonerLite,
+                                         options = providerTileOptions(noWrap = TRUE)
+                        ) %>%
+                        addMarkers(data = points())
         })
         
 

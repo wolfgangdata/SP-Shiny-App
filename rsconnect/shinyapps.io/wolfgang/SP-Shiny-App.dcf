@@ -5,8 +5,8 @@ account: wolfgang
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 246317
-bundleId: 1128689
+bundleId: 1128693
 url: https://wolfgang.shinyapps.io/SP-Shiny-App/
-when: 1513022977.80834
+when: 1513023104.56697
 asMultiple: FALSE
 asStatic: FALSE
