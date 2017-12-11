@@ -3,35 +3,44 @@
 
 library(shiny)
 library(shinythemes)
+library(leaflet)
 
 
 shinyUI(fluidPage(
+        
         titlePanel("SaniPath Deployment Dashboard"),
-        
-        column(3, fluidRow(
-                radioButtons("deployments", "Deployments",
-                             choices = c("Cambodia" = "1",
-                                         "Banglasdesh" = "2"),
-                             selected = "1"
-                )
-        )),
-        
         
         # Theme
         theme = shinytheme("spacelab"),
         # themeSelector(),
   
-        column(1),
-        column(8,
-               tabsetPanel(type = "tabs",
+        sidebarLayout(
+                sidebarPanel(
+                        fluidRow(
+                                radioButtons("deployments", "Deployments",
+                                             choices = c("Cambodia" = "1",
+                                                         "Banglasdesh" = "2"),
+                                             selected = "1")
+                                )
+                        ),
+        mainPanel(
+               tabsetPanel(
                     tabPanel("Overview",
                              textOutput("txtmain"),
-                             plotOutput("hist")),
+                             plotOutput("hist")
+                             ),
                     tabPanel("Sample",
-                             textOutput("txtsample")),
+                             textOutput("txtsample")
+                             ),
+                    tabPanel("Map",
+                             leafletOutput("map1")
+                             ),
                     tabPanel("Lab",
-                             textOutput("txtlab"))
+                             textOutput("txtlab")
+                             )
+                    )
                )
         )
-))
+        )
+        )
                         

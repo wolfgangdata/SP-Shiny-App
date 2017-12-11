@@ -9,7 +9,7 @@ data_col <- read.csv("data/data_col.csv", header=T, sep = ",")
 
 
 # Define server logic required to draw a histogram
-shinyServer(function(input, output) {
+shinyServer(function(input, output, session) {
         
         
         output$hist <- renderPlot({
@@ -27,6 +27,18 @@ shinyServer(function(input, output) {
         
         output$txtlab <- renderText({
                 paste("bla bla text for lab tab")
+        })
+        
+        output$map1 <- renderLeaflet({
+                leaflet() %>% addTiles() %>% addCircleMarkers(
+                        lng = runif(10),
+                        lat = runif(10),
+                        layerId = paste0("marker", 1:10))
+        })
+        
+        observeEvent(input$map1_marker_click, {
+                leafletProxy("map1", session) %>%
+                        removeMarker(input$map1_marker_click$id)
         })
         
 

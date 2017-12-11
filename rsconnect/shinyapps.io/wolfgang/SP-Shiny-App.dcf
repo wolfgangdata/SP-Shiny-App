@@ -1,0 +1,12 @@
+name: SP-Shiny-App
+title: SP-Shiny-App
+username:
+account: wolfgang
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 246317
+bundleId: 1128689
+url: https://wolfgang.shinyapps.io/SP-Shiny-App/
+when: 1513022977.80834
+asMultiple: FALSE
+asStatic: FALSE
